@@ -1,0 +1,142 @@
+ticket_id,customer_id,opened_on,closed_on,priority,category,module
+T0087,A25,2025-11-10,,High,Bug,Planning
+T0058,A17,2025-11-19,2025-12-01,Low,Bug,Inventory
+T0086,A25,2025-11-23,,Low,Feature request,Dashboards
+T0077,A23,2025-11-26,2025-12-13,High,Feature request,Dashboards
+T0104,A29,2025-11-27,2025-12-13,Medium,How-to,Mobile App
+T0128,A36,2025-11-28,2025-12-10,Low,Feature request,Reports
+T0079,A23,2025-11-30,2025-12-22,High,Bug,Dashboards
+T0029,A07,2025-11-30,2025-12-10,High,Feature request,Reports
+T0027,A06,2025-12-01,2025-12-16,Medium,Data issue,Planning
+T0069,A19,2025-12-01,2025-12-16,Medium,How-to,Dashboards
+T0084,A25,2025-12-01,2025-12-09,Low,How-to,Reports
+T0121,A35,2025-12-06,2025-12-15,Medium,How-to,Inventory
+T0106,A29,2025-12-07,2025-12-13,High,Data issue,Mobile App
+T0103,A29,2025-12-09,2025-12-28,Medium,Feature request,Mobile App
+T0050,A15,2025-12-11,2025-12-20,Medium,Feature request,Dashboards
+T0138,A40,2025-12-13,2026-01-06,Low,Bug,Mobile App
+T0080,A24,2025-12-13,,Medium,Data issue,Mobile App
+T0049,A14,2025-12-15,2025-12-30,High,Feature request,Quality
+T0026,A06,2025-12-16,2025-12-17,Low,Bug,Mobile App
+T0041,A13,2025-12-20,2025-12-29,Low,How-to,Planning
+T0003,A01,2025-12-23,2026-01-08,Medium,Data issue,Dashboards
+T0102,A28,2025-12-25,2026-01-18,Low,Data issue,Planning
+T0075,A22,2025-12-26,,Low,Data issue,Mobile App
+T0070,A19,2025-12-28,2026-01-05,High,How-to,Inventory
+T0111,A32,2025-12-28,2026-01-11,Medium,Feature request,Mobile App
+T0061,A17,2025-12-29,2026-01-07,Low,Feature request,Quality
+T0105,A29,2026-01-05,2026-01-26,Medium,Bug,Reports
+T0140,A40,2026-01-05,2026-01-23,Medium,Bug,Quality
+T0096,A26,2026-01-07,2026-01-08,Low,Data issue,Inventory
+T0059,A17,2026-01-09,,Medium,How-to,Inventory
+T0081,A24,2026-01-22,2026-02-03,Medium,Data issue,Mobile App
+T0093,A26,2026-01-23,2026-02-08,Low,Feature request,Reports
+T0044,A13,2026-01-26,,High,How-to,Planning
+T0115,A33,2026-01-28,2026-01-29,Low,Access,Reports
+T0010,A03,2026-02-01,2026-02-16,Medium,How-to,Mobile App
+T0129,A36,2026-02-01,2026-02-21,Medium,Data issue,Reports
+T0071,A19,2026-02-07,2026-02-18,High,How-to,Mobile App
+T0072,A20,2026-02-08,2026-02-20,Low,Data issue,Dashboards
+T0078,A23,2026-02-08,2026-02-17,Low,Data issue,Inventory
+T0088,A25,2026-02-10,,Low,Data issue,Mobile App
+T0131,A36,2026-02-12,2026-02-22,Low,Feature request,Reports
+T0076,A22,2026-02-12,2026-02-22,Low,How-to,Inventory
+T0095,A26,2026-02-14,2026-03-04,Low,Data issue,Quality
+T0016,A04,2026-02-15,2026-03-08,Low,How-to,Quality
+T0127,A36,2026-02-24,2026-02-26,Medium,How-to,Reports
+T0099,A27,2026-02-25,2026-03-21,Medium,Access,Quality
+T0124,A35,2026-02-28,2026-03-22,Low,Data issue,Mobile App
+T0017,A04,2026-03-01,2026-03-04,Low,Bug,Reports
+T0046,A14,2026-03-02,2026-03-25,Low,Feature request,Mobile App
+T0028,A06,2026-03-04,2026-03-09,High,Feature request,Planning
+T0063,A18,2026-03-05,2026-03-27,Medium,Bug,Inventory
+T0141,A40,2026-03-06,2026-03-21,Medium,Data issue,Mobile App
+T0055,A16,2026-03-07,2026-03-12,Medium,How-to,Dashboards
+T0085,A25,2026-03-10,2026-04-03,Medium,Access,Inventory
+T0032,A08,2026-03-16,2026-04-02,Low,Bug,Inventory
+T0004,A01,2026-03-16,2026-04-01,Medium,Bug,Mobile App
+T0133,A37,2026-03-16,2026-03-26,High,Feature request,Planning
+T0117,A34,2026-03-18,2026-03-29,Medium,Data issue,Planning
+T0113,A33,2026-03-24,,Low,Access,Reports
+T0009,A02,2026-03-25,2026-04-17,Medium,Data issue,Dashboards
+T0101,A27,2026-03-26,2026-04-04,Medium,Feature request,Planning
+T0107,A30,2026-03-27,2026-03-28,Medium,Bug,Planning
+T0033,A08,2026-04-02,2026-04-14,Medium,Data issue,Inventory
+T0034,A08,2026-04-04,2026-04-09,Low,Data issue,Reports
+T0042,A13,2026-04-04,2026-04-08,Medium,Bug,Inventory
+T0065,A18,2026-04-09,2026-04-26,Medium,Data issue,Quality
+T0098,A26,2026-04-10,,Medium,Access,Quality
+T0019,A05,2026-04-11,2026-04-29,High,Feature request,Dashboards
+T0040,A12,2026-04-13,2026-04-23,High,Access,Reports
+T0114,A33,2026-04-19,2026-05-06,High,How-to,Reports
+T0056,A16,2026-04-20,2026-05-14,High,Bug,Reports
+T0012,A04,2026-04-20,2026-05-03,Medium,Feature request,Mobile App
+T0023,A06,2026-04-29,2026-05-08,Medium,Bug,Mobile App
+T0067,A19,2026-05-01,2026-05-05,Low,How-to,Inventory
+T0116,A33,2026-05-01,2026-05-16,Medium,How-to,Mobile App
+T0051,A15,2026-05-04,2026-05-19,Low,Bug,Inventory
+T0047,A14,2026-05-04,2026-05-08,Medium,Data issue,Inventory
+T0013,A04,2026-05-04,2026-05-25,Low,Feature request,Reports
+T0007,A02,2026-05-06,2026-05-13,Low,Access,Inventory
+T0112,A32,2026-05-12,2026-05-27,Low,Access,Quality
+T0030,A07,2026-05-18,2026-05-23,Low,Feature request,Inventory
+T0018,A04,2026-05-20,2026-06-08,Low,Bug,Quality
+T0136,A39,2026-05-21,2026-05-28,Medium,How-to,Mobile App
+T0043,A13,2026-05-25,,Low,Bug,Inventory
+T0109,A32,2026-05-25,2026-06-15,Medium,Feature request,Dashboards
+T0119,A35,2026-05-30,2026-06-22,Medium,Data issue,Inventory
+T0005,A01,2026-06-01,2026-06-06,Low,How-to,Inventory
+T0021,A05,2026-06-02,2026-06-23,Low,Bug,Quality
+T0083,A25,2026-06-06,2026-06-12,High,How-to,Dashboards
+T0091,A26,2026-06-08,2026-07-01,Low,Bug,Reports
+T0118,A35,2026-06-10,2026-06-21,Low,How-to,Dashboards
+T0039,A12,2026-06-16,2026-06-29,Low,Access,Planning
+T0082,A24,2026-06-17,2026-07-09,Low,Access,Inventory
+T0135,A39,2026-06-21,2026-06-24,High,Data issue,Inventory
+T0139,A40,2026-06-22,2026-07-02,Low,Feature request,Quality
+T0068,A19,2026-06-23,2026-07-09,Low,Bug,Quality
+T0022,A05,2026-06-26,2026-07-12,Low,Access,Reports
+T0073,A20,2026-06-26,2026-07-05,High,How-to,Dashboards
+T0062,A17,2026-06-27,2026-07-20,Low,How-to,Planning
+T0011,A03,2026-06-29,2026-07-08,Low,Data issue,Mobile App
+T0090,A26,2026-07-02,2026-07-04,Low,Access,Inventory
+T0123,A35,2026-07-05,2026-07-22,Low,How-to,Dashboards
+T0020,A05,2026-07-07,2026-07-15,Medium,How-to,Planning
+T0015,A04,2026-07-08,,Medium,Data issue,Reports
+T0134,A38,2026-07-22,2026-07-25,Low,How-to,Dashboards
+T0031,A07,2026-07-31,2026-08-18,Medium,How-to,Reports
+T0052,A15,2026-08-02,2026-08-22,Low,Bug,Planning
+T0008,A02,2026-08-07,2026-08-30,Medium,Feature request,Planning
+T0097,A26,2026-08-07,2026-08-12,Low,Access,Reports
+T0137,A39,2026-08-09,2026-08-11,Medium,Access,Inventory
+T0094,A26,2026-08-12,2026-08-27,High,Bug,Inventory
+T0002,A01,2026-08-18,2026-09-01,Low,Bug,Inventory
+T0035,A09,2026-08-20,2026-09-09,High,Access,Reports
+T0048,A14,2026-08-20,2026-09-11,High,Feature request,Inventory
+T0100,A27,2026-08-20,2026-09-08,Low,Data issue,Planning
+T0053,A15,2026-08-31,2026-09-05,Low,Access,Inventory
+T0025,A06,2026-09-01,,Medium,Bug,Mobile App
+T0038,A10,2026-09-02,2026-09-20,Low,Feature request,Mobile App
+T0006,A01,2026-09-08,2026-09-28,Low,Bug,Dashboards
+T0125,A35,2026-09-10,2026-10-01,Medium,Access,Dashboards
+T0064,A18,2026-09-10,2026-10-01,High,Data issue,Inventory
+T0120,A35,2026-09-11,2026-09-27,Medium,Feature request,Mobile App
+T0089,A25,2026-09-11,2026-09-27,Medium,Data issue,Inventory
+T0024,A06,2026-09-15,2026-10-06,High,Feature request,Dashboards
+T0122,A35,2026-09-16,2026-10-03,High,How-to,Mobile App
+T0036,A10,2026-09-16,2026-10-05,High,Feature request,Mobile App
+T0045,A14,2026-09-23,,Medium,Bug,Planning
+T0130,A36,2026-09-27,2026-10-15,Low,How-to,Reports
+T0001,A01,2026-10-02,,High,Bug,Mobile App
+T0060,A17,2026-10-02,,Medium,Bug,Mobile App
+T0092,A26,2026-10-03,,Medium,Access,Inventory
+T0108,A31,2026-10-08,2026-10-20,Low,Bug,Dashboards
+T0014,A04,2026-10-10,2026-10-22,Low,Bug,Quality
+T0037,A10,2026-10-10,2026-10-31,Medium,Bug,Quality
+T0132,A37,2026-10-14,2026-10-16,High,Access,Dashboards
+T0054,A15,2026-10-16,2026-10-29,Low,How-to,Planning
+T0110,A32,2026-10-22,,Low,Access,Reports
+T0126,A36,2026-10-24,2026-10-28,Medium,Bug,Reports
+T0074,A21,2026-10-25,2026-10-31,Low,Bug,Planning
+T0057,A16,2026-10-26,2026-10-31,Low,Bug,Planning
+T0066,A19,2026-10-29,2026-10-31,Low,Access,Dashboards

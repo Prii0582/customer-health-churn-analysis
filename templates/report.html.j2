@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Customer Health Report</title>
+<style>
+  @page { size: 1240px 1754px; margin: 0; }
+  :root {
+    --navy: #1B2A49; --navy-2: #2C3E66; --teal: #0F9D8F; --teal-soft: #E3F4F2;
+    --ink: #1F2937; --muted: #6B7280; --line: #E5E8EE; --bg: #F5F7FA;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1240px; background: #fff; }
+  body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: var(--ink);
+         -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 1240px; height: 1754px; padding: 0 0 40px; position: relative; overflow: hidden;
+          page-break-after: always; break-after: page; }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  header { background: var(--navy); color: #fff; padding: 40px 56px 34px; }
+  header .eyebrow { color: #7FD6CC; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
+  header h1 { font-size: 36px; font-weight: 700; margin-top: 8px; }
+  header .meta { margin-top: 10px; font-size: 15px; color: #C9D3E6; }
+  header .meta span + span::before { content: "\2022"; margin: 0 10px; color: #7FD6CC; }
+  .bar { height: 6px; background: var(--teal); }
+
+  .content { padding: 30px 56px 0; }
+  h2 { font-size: 19px; color: var(--navy); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  h2::before { content: ""; width: 5px; height: 20px; background: var(--teal); border-radius: 2px; }
+  section { margin-bottom: 24px; }
+
+  .cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .card { background: var(--bg); border-radius: 10px; padding: 18px 20px; border-top: 5px solid var(--navy); }
+  .card .label { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+  .card .value { font-size: 40px; font-weight: 700; margin-top: 4px; line-height: 1.1; }
+  .card .sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  .findings { background: var(--teal-soft); border-radius: 10px; padding: 18px 24px; }
+  .findings li { font-size: 15px; line-height: 1.55; margin-left: 18px; padding: 2px 0; }
+  .findings li::marker { color: var(--teal); }
+
+  .charts { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
+  .chart { border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px 10px; }
+  .chart h3 { font-size: 15px; color: var(--navy); }
+  .chart p { font-size: 12.5px; color: var(--muted); margin: 2px 0 6px; }
+  .chart img { width: 100%; display: block; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead th { background: var(--navy); color: #fff; text-align: left; font-weight: 600; padding: 9px 10px; font-size: 12.5px;
+             text-transform: uppercase; letter-spacing: .04em; }
+  tbody td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.4; }
+  tbody tr:nth-child(even) td { background: #FAFBFC; }
+  td.num { text-align: center; font-weight: 700; }
+  .pill { display: inline-block; color: #fff; border-radius: 999px; padding: 2px 10px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .chip { display: inline-block; background: #EEF1F6; color: var(--ink); border-radius: 6px; padding: 2px 8px;
+          margin: 0 4px 4px 0; font-size: 12.5px; white-space: nowrap; }
+  .action { color: var(--navy-2); }
+  .cust { font-weight: 600; white-space: nowrap; }
+  .small { font-size: 12px; color: var(--muted); }
+  .compact tbody td { padding: 4px 10px; font-size: 12.5px; line-height: 1.35; }
+  .compact thead th { padding: 7px 10px; }
+  .h2note { margin-left: auto; font-size: 13px; font-weight: 400; color: var(--muted); }
+  .rules td:first-child { font-weight: 600; white-space: nowrap; color: var(--navy); width: 210px; }
+
+  footer { position: absolute; bottom: 18px; left: 56px; right: 56px; font-size: 12px; color: var(--muted);
+           display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 10px; }
+</style>
+</head>
+<body>
+{% set PRI = 8 %}
+
+<!-- ============================ PAGE 1 ============================ -->
+<div class="page">
+  <header>
+    <div class="eyebrow">Customer Success &middot; Monthly Review</div>
+    <h1>Customer Health &amp; Churn-Risk Report</h1>
+    <div class="meta"><span>As of {{ as_of }}</span><span>Usage window {{ period }}</span><span>{{ total }} customers</span><span>Synthetic data</span></div>
+  </header>
+  <div class="bar"></div>
+
+  <div class="content">
+    <section>
+      <div class="cards">
+        <div class="card" style="border-top-color: var(--navy)">
+          <div class="label">Customers</div>
+          <div class="value" style="color: var(--navy)">{{ total }}</div>
+          <div class="sub">Usage {{ "%+.0f"|format(portfolio_trend) }}% vs prior quarter</div>
+        </div>
+        {% for r, sub in [("Critical", "Act this week"), ("High", "Act this month"), ("Medium", "Watch closely"), ("Healthy", "Grow & reference")] %}
+        <div class="card" style="border-top-color: {{ risk_colours[r] }}">
+          <div class="label">{{ r }}</div>
+          <div class="value" style="color: {{ risk_colours[r] }}">{{ counts[r] }}</div>
+          <div class="sub">{{ sub }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section>
+      <h2>Key findings</h2>
+      <ul class="findings">
+        {% for f in findings %}<li>{{ f }}</li>{% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <div class="charts">
+        <div class="chart">
+          <h3>Usage trend by risk group</h3>
+          <p>Average monthly sessions per customer, indexed to Nov&nbsp;2025 = 100</p>
+          <img src="data:image/png;base64,{{ trend_b64 }}" alt="Usage trend chart">
+        </div>
+        <div class="chart">
+          <h3>What is driving the risk?</h3>
+          <p>Warning signs among Critical and High customers</p>
+          <img src="data:image/png;base64,{{ drivers_b64 }}" alt="Risk drivers chart">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Priority accounts &mdash; Critical &amp; High{% if priority|length > PRI %}<span class="h2note">Top {{ PRI }} of {{ priority|length }} shown &middot; full list on page 2</span>{% endif %}</h2>
+      <table>
+        <thead><tr>
+          <th style="width:150px">Customer</th><th style="width:90px">Risk</th><th style="width:70px">Score</th>
+          <th style="width:95px">Renewal</th><th>Why</th><th style="width:330px">Recommended action</th>
+        </tr></thead>
+        <tbody>
+        {% for c in priority[:PRI] %}
+          <tr>
+            <td class="cust">{{ c.customer_name }}<div class="small">{{ c.csm }} &middot; {{ c.industry }}</div></td>
+            <td><span class="pill" style="background: {{ risk_colours[c.risk] }}">{{ c.risk }}</span></td>
+            <td class="num">{{ c.health_score }}</td>
+            <td>{{ c.renewal_month }}</td>
+            <td>{% for w in c.why_list %}<span class="chip">{{ w }}</span>{% endfor %}</td>
+            <td class="action">{{ c.recommended_action }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <footer><span>Customer Health &amp; Churn-Risk Report &middot; synthetic sample data</span><span>Page 1 of 2</span></footer>
+</div>
+
+<!-- ============================ PAGE 2 ============================ -->
+<div class="page">
+  <header style="padding: 26px 56px 22px">
+    <div class="eyebrow">Appendix</div>
+    <h1 style="font-size: 28px">All customers &amp; scoring rules</h1>
+  </header>
+  <div class="bar"></div>
+  <div class="content">
+    <section>
+      <h2>Health score by customer</h2>
+      <table class="compact">
+        <thead><tr>
+          <th>Customer</th><th>Risk</th><th style="text-align:center">Score</th><th style="text-align:center">Usage trend</th>
+          <th style="text-align:center">Active days</th><th style="text-align:center">Modules</th><th style="text-align:center">Open tickets</th>
+          <th>Renewal</th><th>Recommended action</th>
+        </tr></thead>
+        <tbody>
+        {% for c in everyone %}
+          <tr>
+            <td class="cust">{{ c.customer_name }}</td>
+            <td><span class="pill" style="background: {{ risk_colours[c.risk] }}">{{ c.risk }}</span></td>
+            <td class="num">{{ c.health_score }}</td>
+            <td style="text-align:center; color: {{ '#C0392B' if c.usage_trend_pct <= -15 else ('#0F9D8F' if c.usage_trend_pct >= 5 else '#1F2937') }}">{{ "%+.0f"|format(c.usage_trend_pct) }}%</td>
+            <td style="text-align:center">{{ "%.0f"|format(c.avg_active_days) }}</td>
+            <td style="text-align:center">{{ c.modules_adopted }}/6</td>
+            <td style="text-align:center">{{ c.open_tickets }}</td>
+            <td>{{ c.renewal_month }}</td>
+            <td class="action">{{ c.recommended_action }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>How the health score works</h2>
+      <table class="rules compact">
+        <tbody>
+        {% for name, how in rules %}<tr><td>{{ name }}</td><td>{{ how }}</td></tr>{% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <footer><span>All figures are from a synthetic, fictional dataset generated for this portfolio project.</span><span>Page 2 of 2</span></footer>
+</div>
+
+</body>
+</html>
